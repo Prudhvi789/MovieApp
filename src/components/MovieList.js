@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MovieCard from './MovieCard.js'
 
 const StyledContainer = styled.div` 
-    margin: 3% 5%;
+    margin: 3% 10%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 20px;
