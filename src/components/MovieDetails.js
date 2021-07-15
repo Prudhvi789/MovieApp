@@ -17,7 +17,7 @@ const fade = keyframes`
 
 const DetailBox = styled.div`{
     color: aliceblue;
-    padding: 9rem;
+    padding: 22rem;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url(${(props) => ('https://image.tmdb.org/t/p/original'+props.imageId)});
     background-size: auto,auto 100%;
     background-repeat: no-repeat;
@@ -31,6 +31,15 @@ const DetailBox = styled.div`{
     
     @media(max-width: 430px){
         padding: 2rem;
+        height : 95vh;
+
+        >div>p{
+            margin-bottom : 2rem !important;
+            margin-top: 70%;
+        }
+    }
+   @media(max-width: 768px){
+        padding: 15rem;
         height : 95vh;
 
         >div>p{
