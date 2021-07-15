@@ -1,20 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const CardHeader = styled.div`
   display : none;
 `;
 
+const fade = keyframes`
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+`;
+
+const dummy = 'https://lh3.googleusercontent.com/proxy/MkkGWewT4CcqkWxiDN1zCj1_EyM-XvkCIeP9wQEJOoLXAnuVuz0nBtOEDzHWLk--K8OElmLbDrG9NYknvuAcK0vIYHLMqPXNVYuwztGGiOOQK-m4EfILTcUebw';
 const ListCard = styled.div`
-    width : 250px;
-    height : 350px;
-    margin : 20px;
-    background-image : url(${(props) => ('https://image.tmdb.org/t/p/original'+props.imageId)});
+    width : 15rem;
+    height : 21rem;
+    background : url(${(props) => props.imageId ? ('https://image.tmdb.org/t/p/original'+props.imageId) : dummy});
     background-repeat: round;
-    border-radius: 20px 20px 0 0;
+    border-radius: 10% 10% 0 0;
     display: flex;
     align-items: flex-end;
+    animation: ${fade} 1.2s ease-in-out;
+    animation-fill-mode: both;
+
+    @media(max-width:430px){
+        width: 7rem;
+        height: 10rem;
+    }
 
     &:hover{
     ${CardHeader}{    
@@ -28,7 +47,7 @@ const ListCard = styled.div`
 `;    
 
 
-const Movie = (props) => {
+const MovieCard = (props) => {
     const history = useHistory();
     const [ genres, setGenres ] = useState([]);
     const genreUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=74a9f33e3ae7ed37c1398178d30d8c0f&language=en-US';
@@ -51,4 +70,4 @@ const Movie = (props) => {
     )
 }
 
-export default Movie;
+export default MovieCard;

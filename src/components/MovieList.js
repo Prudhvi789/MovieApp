@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Movie from './Movie.js'
+import MovieCard from './MovieCard.js'
 
-const StyledContainer = styled.div`
-        display: flex;
-        margin: 1%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
+const StyledContainer = styled.div` 
+    margin: 3% 5%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+
+    @media(max-width: 768px) {
+        margin: 3% 0%;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 1rem;
+      }
+    @media(max-width: 430px) {
+        margin: 3% 1%;
+        grid-gap: 0.5rem;
+        grid-template-columns: repeat(3,1fr);
+      }  
     `;
 
 const MovieList  = (props) => {
@@ -47,7 +55,7 @@ const MovieList  = (props) => {
             {
               loading ? <div> Loading </div> :  
              (moviesData.length !== 0 ? moviesData.map((item)=>{
-                return ( <Movie item={item} key={item.id}/> )
+                return ( <MovieCard item={item} key={item.id}/> )
                 }) : <div>No such movies!!</div>)
             } 
         </StyledContainer>
