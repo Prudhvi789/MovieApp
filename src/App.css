@@ -1,9 +1,12 @@
-.App {
-}
-
 body{
   text-align: center;
   background-color: #0e0d0d;
   color: aliceblue;
+}
+
+@media(min-width:1450px){
+  .App{
+    font-size: x-large;
+  }
 }
 

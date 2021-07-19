@@ -4,8 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
 
 const SearchWrapper = styled.div`
-        display:inline-flex;    
-        margin-top: 20px;    
+        display:inline-flex;      
         align-items : center;
 
         >svg{
@@ -15,7 +14,7 @@ const SearchWrapper = styled.div`
         }
 
         >svg:hover{
-            background : #e1dcdc;
+            background : #ee0d0dd9;
             cursor : pointer; 
         }
     `;

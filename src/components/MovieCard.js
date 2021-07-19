@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
@@ -35,6 +35,11 @@ const ListCard = styled.div`
         height: 10rem;
     }
 
+    @media(min-width:1450px){
+        width: 21rem;
+        height: 27rem;
+    }
+
     &:hover{
     ${CardHeader}{    
         display : block;
@@ -49,15 +54,7 @@ const ListCard = styled.div`
 
 const MovieCard = (props) => {
     const history = useHistory();
-    const [ genres, setGenres ] = useState([]);
-    const genreUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=74a9f33e3ae7ed37c1398178d30d8c0f&language=en-US';
-
-    useEffect(()=>{
-        fetch(genreUrl,setGenres)
-        .then(response => response.json())
-        .then(data => setGenres(data.genres))
-    },[])
-
+    const genres = JSON.parse(sessionStorage.getItem('genres'))
     let genreList = props.item.genre_ids.map((item)=>genres.filter((ele)=>(ele.id === item)));
     
     return (

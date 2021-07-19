@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MovieCard from './MovieCard.js'
 
 const StyledContainer = styled.div` 
-    margin: 3% 5%;
+    margin: 3% 10%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 20px;
@@ -18,6 +18,10 @@ const StyledContainer = styled.div`
         grid-gap: 0.5rem;
         grid-template-columns: repeat(3,1fr);
       }  
+
+    @media(min-width:1450px){
+        margin : 3% 22%;
+    }  
     `;
 
 const MovieList  = (props) => {
@@ -27,7 +31,7 @@ const MovieList  = (props) => {
     const featuredUrl = "https://api.themoviedb.org/3/discover/movie?api_key=74a9f33e3ae7ed37c1398178d30d8c0f&language=en-US&sort_by=popularity.desc";
     const searchUrl = 'https://api.themoviedb.org/3/search/movie?&api_key=74a9f33e3ae7ed37c1398178d30d8c0f&query='+props.word
     
-    
+    //console.log(props.options)
     const fetchData = (url) => {
         setLoading(true)
         fetch(url)
@@ -54,9 +58,11 @@ const MovieList  = (props) => {
         <StyledContainer>
             {
               loading ? <div> Loading </div> :  
-             (moviesData.length !== 0 ? moviesData.map((item)=>{
+             (props.options.length !== 0 ? props.options.map((item)=>{
                 return ( <MovieCard item={item} key={item.id}/> )
-                }) : <div>No such movies!!</div>)
+                })  :  moviesData.length !== 0 ? moviesData.map((item)=>{
+                        return ( <MovieCard item={item} key={item.id}/> )
+                            }) : <div>No such movies!!</div>)
             } 
         </StyledContainer>
     )

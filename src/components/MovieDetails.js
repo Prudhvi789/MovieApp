@@ -38,6 +38,19 @@ const DetailBox = styled.div`{
             margin-top: 70%;
         }
     }
+
+    @media(max-width: 768px){
+        padding: 15rem;
+        height : 95vh;
+        >div>p{
+            margin-bottom : 2rem !important;
+            margin-top: 70%;
+        }
+    }
+
+    @media(min-width:1450px){
+        padding : 22rem;
+    }
 }`;
 
 const Titles = styled.div`
