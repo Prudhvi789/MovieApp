@@ -11,7 +11,7 @@ const ToggleButton = styled.div`
 
     :hover {
         cursor : pointer;
-        background : red;
+        background : rgba(238, 13, 13, 0.85);
     }
 `;
 
