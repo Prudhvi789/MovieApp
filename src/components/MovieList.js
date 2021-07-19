@@ -20,7 +20,7 @@ const StyledContainer = styled.div`
       }  
 
     @media(min-width:1450px){
-        margin : 3% 22%;
+        margin : 3% 3%;
     }  
     `;
 
